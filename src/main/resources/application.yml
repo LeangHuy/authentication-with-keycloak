@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: authentication-with-keycloak
+#Resource server configuration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/myauth
+          jwk-set-uri: http://localhost:8080/realms/myauth/protocol/openid-connect
+# Keycloak configuration
+keycloak:
+  realm: myauth
+  resource: myauth
+  auth-server-url: http://localhost:8080/
+  credentials:
+    secret: CjAPGgpaxeIkeU09QORygtzHRa6i4ZTS
+    client-id: myauth
+    provider: secret
+
+springdoc:
+  swagger-ui:
+    tags-sorter: alpha
+    doc-expansion: false
