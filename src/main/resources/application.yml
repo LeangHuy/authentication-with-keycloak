@@ -10,7 +10,8 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/myauth
-          jwk-set-uri: http://localhost:8080/realms/myauth/protocol/openid-connect
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+#          jwk-set-uri: http://localhost:8080/realms/myauth/protocol/openid-connect/certs
 # Keycloak configuration
 keycloak:
   realm: myauth
@@ -20,8 +21,11 @@ keycloak:
     secret: CjAPGgpaxeIkeU09QORygtzHRa6i4ZTS
     client-id: myauth
     provider: secret
-
+# Swagger configuration
 springdoc:
   swagger-ui:
+    oauth:
+      client-id: myauth
+      client-secret: CjAPGgpaxeIkeU09QORygtzHRa6i4ZTS
+      realm: myauth
     tags-sorter: alpha
-    doc-expansion: false
