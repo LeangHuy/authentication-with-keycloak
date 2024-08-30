@@ -29,3 +29,6 @@ springdoc:
       client-secret: CjAPGgpaxeIkeU09QORygtzHRa6i4ZTS
       realm: myauth
     tags-sorter: alpha
+logging:
+  level:
+    org.springframework.web: debug
